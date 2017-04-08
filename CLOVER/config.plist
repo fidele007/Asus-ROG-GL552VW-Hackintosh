@@ -10,6 +10,8 @@
 			<false/>
 			<key>DropOEM_DSM</key>
 			<false/>
+			<key>Name</key>
+			<string>DSDT.aml</string>
 			<key>Fixes</key>
 			<dict>
 				<key>AddPNLF_1000000</key>
@@ -23,63 +25,45 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>change _OSI to XOSI</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>X09TSQ==</data>
-					<key>Replace</key>
-					<data>WE9TSQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC1 to EH01</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>RUhDMQ==</data>
-					<key>Replace</key>
-					<data>RUgwMQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC2 to EH02</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>RUhDMg==</data>
-					<key>Replace</key>
-					<data>RUgwMg==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change HDAS to HDEF</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>SERBUw==</data>
+					<data>
+					SERBUw==
+					</data>
 					<key>Replace</key>
-					<data>SERFRg==</data>
+					<data>
+					SERFRg==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change HECI to IMEI</string>
+					<string>change _OSI to XOSI</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>SEVDSQ==</data>
+					<data>
+					X09TSQ==
+					</data>
 					<key>Replace</key>
-					<data>SU1FSQ==</data>
+					<data>
+					WE9TSQ==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change MEI to IMEI</string>
+					<string>GFX0 to IGPU</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>TUVJXw==</data>
+					<data>
+					R0ZYMA==
+					</data>
 					<key>Replace</key>
-					<data>SU1FSQ==</data>
+					<data>
+					SUdQVQ==
+					</data>
 				</dict>
 			</array>
 			<key>ReuseFFFF</key>
@@ -99,35 +83,15 @@
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
-			<false/>
+			<true/>
 			<key>Generate</key>
 			<false/>
-			<key>PluginType</key>
-			<integer>1</integer>
 		</dict>
-		<key>SortedOrder</key>
-		<array>
-			<string>SSDT.aml</string>
-			<string>SSDT-0.aml</string>
-			<string>SSDT-1.aml</string>
-			<string>SSDT-2.aml</string>
-			<string>SSDT-3.aml</string>
-			<string>SSDT-4.aml</string>
-			<string>SSDT-5.aml</string>
-			<string>SSDT-6.aml</string>
-			<string>SSDT-7.aml</string>
-			<string>SSDT-8.aml</string>
-			<string>SSDT-9.aml</string>
-			<string>SSDT-10.aml</string>
-			<string>SSDT-11.aml</string>
-			<string>SSDT-12.aml</string>
-			<string>SSDT-13.aml</string>
-		</array>
 	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v darkwake=10 dart=0 nv_disable=1 kext-dev-mode=1 rootless=0</string>
+		<string>-v dart=0 darkwake=0 nv_disable=1 kext-dev-mode=1</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -160,26 +124,28 @@
 				<key>Key</key>
 				<string>AAPL,GfxYTile</string>
 				<key>Value</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 			</dict>
 			<dict>
 				<key>Device</key>
 				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Key</key>
 				<string>model</string>
 				<key>Value</key>
 				<string>Intel HD Graphics 530</string>
 			</dict>
 		</array>
-		<key>NoDefaultProperties</key>
-		<true/>
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
 			<string>3</string>
-			<key>ResetHDA</key>
-			<true/>
 		</dict>
+		<key>NoDefaultProperties</key>
+		<true/>
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
@@ -225,6 +191,8 @@
 			<key>Tool</key>
 			<true/>
 		</dict>
+		<key>ScreenResolution</key>
+		<string>1920x1080</string>
 		<key>Theme</key>
 		<string>softinverted</string>
 	</dict>
@@ -242,7 +210,7 @@
 		<key>NvidiaSingle</key>
 		<false/>
 		<key>ig-platform-id</key>
-		<string>0x191b0000</string>
+		<string>0x191B0000</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -270,27 +238,19 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>change 15 port limit to 30</string>
+				<string>Raise 15 port limit to 30 in AppleUSBXHCIPCI</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>g72M/v//EA==</data>
+				<data>
+				g72M/v//EA==
+				</data>
 				<key>Name</key>
 				<string>AppleUSBXHCIPCI</string>
 				<key>Replace</key>
-				<data>g72M/v//Hw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AQAAdRc=</data>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>AQAA6xc=</data>
+				<data>
+				g72M/v//Hw==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -298,11 +258,15 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>wegQD7bw</data>
+				<data>
+				wegQD7bw
+				</data>
 				<key>Name</key>
 				<string>AppleAPIC</string>
 				<key>Replace</key>
-				<data>vhcAAACQ</data>
+				<data>
+				vhcAAACQ
+				</data>
 			</dict>
 		</array>
 	</dict>
@@ -316,13 +280,13 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>10/18/13</string>
+		<string>12/22/2016</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP112.88Z.0138.B02.1310181745</string>
+		<string>MB91.88Z.0154.B13.1612221002</string>
 		<key>Board-ID</key>
-		<string>Mac-3CBD00234E554E41</string>
+		<string>Mac-9AE82516C7C6B903</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardType</key>
@@ -332,15 +296,17 @@
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
-		<string>08</string>
+		<string>0x10</string>
 		<key>Family</key>
-		<string>MacBook Pro</string>
+		<string>MacBook</string>
+		<key>LocationInChassis</key>
+		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
 		<key>Mobile</key>
 		<true/>
 		<key>ProductName</key>
-		<string>MacBookPro11,2</string>
+		<string>MacBook9,1</string>
 		<key>SerialNumber</key>
 		<string>C02K2PXQFD56</string>
 		<key>Trust</key>
