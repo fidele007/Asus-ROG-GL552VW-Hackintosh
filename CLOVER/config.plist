@@ -10,8 +10,6 @@
 			<false/>
 			<key>DropOEM_DSM</key>
 			<false/>
-			<key>Name</key>
-			<string>DSDT.aml</string>
 			<key>Fixes</key>
 			<dict>
 				<key>AddPNLF_1000000</key>
@@ -21,6 +19,8 @@
 				<key>NewWay_80000000</key>
 				<true/>
 			</dict>
+			<key>Name</key>
+			<string>DSDT.aml</string>
 			<key>Patches</key>
 			<array>
 				<dict>
@@ -91,7 +91,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v dart=0 darkwake=0 nv_disable=1 kext-dev-mode=1</string>
+		<string>-v dart=0 darkwake=0 nv_disable=1</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -106,11 +106,6 @@
 		<integer>15</integer>
 		<key>XMPDetection</key>
 		<string>Yes</string>
-	</dict>
-	<key>CPU</key>
-	<dict>
-		<key>UseARTFrequency</key>
-		<false/>
 	</dict>
 	<key>Devices</key>
 	<dict>
@@ -250,6 +245,22 @@
 				<key>Replace</key>
 				<data>
 				g72M/v//Hw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AQAAdRc=
+				</data>
+				<key>Name</key>
+				<string>IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>
+				AQAA6xc=
 				</data>
 			</dict>
 			<dict>
