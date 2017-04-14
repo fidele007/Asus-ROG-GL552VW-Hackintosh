@@ -16602,7 +16602,7 @@ RWAK (Arg0)
                     Store (0x07D9, OSYS)
                 }
 
-                If(LOr(_OSI("Darwin"),_OSI("Windows 2012")))
+                If (_OSI ("Windows 2012"))
                 {
                     Store (0x07DC, OSYS)
                 }
