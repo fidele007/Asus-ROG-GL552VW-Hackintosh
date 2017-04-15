@@ -67,7 +67,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change HDAS to HDEF (make Skylake board with audio patch)</string>
+					<string>change HDAS to HDEF (make Skylake board work with audio patch)</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -307,7 +307,7 @@
 		<key>NvidiaSingle</key>
 		<false/>
 		<key>ig-platform-id</key>
-		<string>0x191B0000</string>
+		<string>0x191b0000</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
