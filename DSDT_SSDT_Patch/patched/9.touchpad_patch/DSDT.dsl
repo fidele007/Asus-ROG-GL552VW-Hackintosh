@@ -13595,47 +13595,66 @@ RWAK (Arg0)
         }
     }
 
-    Scope (_SB.PCI0)
+Scope (_SB.PCI0)
+{
+    Device (I2C1)
     {
-        Device (I2C1)
+        Name (LINK, "\\_SB.PCI0.I2C1")
+        Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
         {
-            Name (LINK, "\\_SB.PCI0.I2C1")
-            Name (_HID, "INT3443")  // _HID: Hardware ID
-            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
-            {
-                Return (LHRV (SB11))
-            }
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-            {
-                Return (LCRS (SMD1, SB01, SIR1))
-            }
-            Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
-            {
-                GETD (SB11)
-            }
-            Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
-            {
-                LPD0 (SB11)
-            }
-            Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
-            {
-                LPD3 (SB11)
-            }
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (LSTA (SMD1))
-            }
-            Name (_ADR, 0x00150001)  // _ADR: Address
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-            {
-                If (PCIC (Arg0))
-                {
-                    Return (PCID (Arg0, Arg1, Arg2, Arg3))
-                }
-                Return (Zero)
-            }
+            GETD (SB11)
+        }
+
+        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+        {
+            LPD0 (SB11)
+        }
+
+        Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
+        {
+            LPD3 (SB11)
         }
     }
+}
+
+If (LNotEqual (SMD1, 0x02))
+{
+    Scope (_SB.PCI0.I2C1)
+    {
+        Name (_HID, "INT3443")  // _HID: Hardware ID
+        Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+        {
+            Return (LHRV (SB11))
+        }
+
+        Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+        {
+            Return (LCRS (SMD1, SB01, SIR1))
+        }
+
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            Return (LSTA (SMD1))
+        }
+    }
+}
+
+If (LEqual (SMD1, 0x02))
+{
+    Scope (_SB.PCI0.I2C1)
+    {
+        Name (_ADR, 0x00150001)  // _ADR: Address
+        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        {
+            If (PCIC (Arg0))
+            {
+                Return (PCID (Arg0, Arg1, Arg2, Arg3))
+            }
+
+            Return (Zero)
+        }
+    }
+}
 
     Scope (_SB.PCI0)
     {
