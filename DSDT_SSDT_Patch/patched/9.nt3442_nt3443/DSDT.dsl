@@ -13594,7 +13594,6 @@ RWAK (Arg0)
             }
         }
     }
-        
 
     Scope (_SB.PCI0)
     {
@@ -13637,7 +13636,6 @@ RWAK (Arg0)
             }
         }
     }
-        
 
     Scope (_SB.PCI0)
     {
@@ -14395,7 +14393,7 @@ RWAK (Arg0)
             Name (_HID, "XXXX0000")  // _HID: Hardware ID
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_S0W, 0x03)  // _S0W: S0 Device Wake State
-            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, HIDG))
                 {
@@ -14631,7 +14629,7 @@ RWAK (Arg0)
             Name (_HID, "XXXX0000")  // _HID: Hardware ID
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
-            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, HIDG))
                 {
@@ -16564,7 +16562,7 @@ RWAK (Arg0)
                     Store (0x07D9, OSYS)
                 }
 
-                If(LOr(_OSI("Darwin"),_OSI("Windows 2012")))
+                If (_OSI ("Windows 2012"))
                 {
                     Store (0x07DC, OSYS)
                 }
