@@ -228,7 +228,7 @@
 				<key>Device</key>
 				<string>IntelGFX</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Key</key>
 				<string>model</string>
 				<key>Value</key>
