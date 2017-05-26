@@ -109,7 +109,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>GFX0 to IGPU</string>
+					<string>change GFX0 to IGPU</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -258,6 +258,36 @@
 	</array>
 	<key>GUI</key>
 	<dict>
+		<key>ConsoleMode</key>
+		<string>Max</string>
+		<key>Custom</key>
+		<dict>
+			<key>Entries</key>
+			<array>
+				<dict>
+					<key>Arguments</key>
+					<string>root=UUID=90ad3a6c-7337-4eaa-84ea-77fdad9866da ro initrd=initrd.img add_efi_memmap verbose nouveau.modeset=0 tpm_tis.interrupts=0 reboot=acpi,efi,kbd acpi_osi= i915.preliminary_hw_support=1 idle=nomwait acpi_backlight=none</string>
+					<key>Disabled</key>
+					<false/>
+					<key>FullTitle</key>
+					<string>Linux Mint</string>
+					<key>Hidden</key>
+					<false/>
+					<key>Ignore</key>
+					<false/>
+					<key>Image</key>
+					<string>ubuntu</string>
+					<key>Path</key>
+					<string>vmlinuz</string>
+					<key>Type</key>
+					<string>All</string>
+					<key>Volume</key>
+					<string>652596BB-5ECC-4A70-A4E7-3B9D3D97699F</string>
+					<key>VolumeType</key>
+					<string>Internal</string>
+				</dict>
+			</array>
+		</dict>
 		<key>Hide</key>
 		<array>
 			<string>BOOTX64.EFI</string>
@@ -281,10 +311,12 @@
 		<dict>
 			<key>Entries</key>
 			<true/>
+			<key>Kernel</key>
+			<string>All</string>
 			<key>Legacy</key>
 			<false/>
 			<key>Linux</key>
-			<true/>
+			<false/>
 			<key>Tool</key>
 			<true/>
 		</dict>
