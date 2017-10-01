@@ -1,6 +1,6 @@
 # Asus ROG GL552VW Hackintosh macOS El Capitan
-Guide to hackintoshing the ASUS ROG GL552VW on macOS El Capitan
-
+* Guide to hackintoshing the ASUS ROG GL552VW on macOS El Capitan
+* Guide for [macOS Sierra](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/sierra)
 ## Specs
 
 //\\\ | Asus ROG GL552VW
