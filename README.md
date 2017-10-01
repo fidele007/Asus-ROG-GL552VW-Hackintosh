@@ -1,5 +1,5 @@
-# Asus-ROG-GL552VW-Hackintosh
-Guide to hackintoshing the ASUS ROG GL552VW
+# Asus ROG GL552VW Hackintosh macOS Sierra
+Guide to hackintoshing ASUS ROG GL552VW on macOS Sierra
 
 ## Specs
 

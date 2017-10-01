@@ -12,245 +12,85 @@
 			<false/>
 			<key>Fixes</key>
 			<dict>
-				<key>AddPNLF_1000000</key>
-				<true/>
-				<key>FixShutdown_0004</key>
-				<true/>
+				<key>FiX_TMR_40000</key>
+				<false/>
+				<key>FiX_WAK_200000</key>
+				<false/>
 				<key>NewWay_80000000</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>Name</key>
 			<string>DSDT.aml</string>
-			<key>Patches</key>
-			<array>
-				<dict>
-					<key>Comment</key>
-					<string>change _OSI to XOSI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X09TSQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WE9TSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC1 to EH01</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC2 to EH02</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMg==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HDAS to HDEF (make Skylake board work with audio patch)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					SERBUw==
-					</data>
-					<key>Replace</key>
-					<data>
-					SERFRg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HECI to IMEI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					SEVDSQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					SU1FSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change MEI to IMEI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					TUVJXw==
-					</data>
-					<key>Replace</key>
-					<data>
-					SU1FSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					R0ZYMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					SUdQVQ==
-					</data>
-				</dict>
-			</array>
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
-		<key>DropTables</key>
-		<array>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>MCFG</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>xh_rvp10</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>CpuPm</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>Cpu0Cst</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>Cpu0Ist</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>ApCst</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>ApIst</string>
-			</dict>
-		</array>
+		<key>HaltEnabler</key>
+		<false/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
 			<false/>
 			<key>Generate</key>
-			<false/>
-			<key>PluginType</key>
-			<integer>1</integer>
+			<dict>
+				<key>CStates</key>
+				<false/>
+				<key>PStates</key>
+				<false/>
+			</dict>
 		</dict>
 	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v dart=0 darkwake=0 nv_disable=1 kext-dev-mode=1</string>
-		<key>Debug</key>
-		<false/>
+		<string>-v -x dart=0 darkwake=0 nv_disable=1 kext-dev-mode=1</string>
 		<key>DefaultVolume</key>
-		<string>LastBootedVolume</string>
+		<string>MacHDD</string>
 		<key>Legacy</key>
-		<string>LegacyBiosDefault</string>
-		<key>NeverHibernate</key>
+		<string>PBR</string>
+		<key>Log</key>
 		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>15</integer>
+		<integer>-1</integer>
 		<key>XMPDetection</key>
-		<string>Yes</string>
-	</dict>
-	<key>CPU</key>
-	<dict>
-		<key>HWPEnable</key>
-		<true/>
-		<key>UseARTFrequency</key>
-		<false/>
+		<string>NO</string>
 	</dict>
 	<key>Devices</key>
 	<dict>
-		<key>AddProperties</key>
-		<array>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>AAPL,GfxYTile</string>
-				<key>Value</key>
-				<data>
-				AQAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Key</key>
-				<string>model</string>
-				<key>Value</key>
-				<string>Intel HD Graphics 530</string>
-			</dict>
-		</array>
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>3</string>
+			<string>1</string>
 		</dict>
-		<key>NoDefaultProperties</key>
-		<true/>
+		<key>FakeID</key>
+		<dict>
+			<key>ATI</key>
+			<string>0x0</string>
+			<key>IMEI</key>
+			<string>0x0</string>
+			<key>IntelGFX</key>
+			<string>0x0</string>
+			<key>LAN</key>
+			<string>0x0</string>
+			<key>NVidia</key>
+			<string>0x0</string>
+			<key>SATA</key>
+			<string>0x0</string>
+			<key>WIFI</key>
+			<string>0x0</string>
+			<key>XHCI</key>
+			<string>0x0</string>
+		</dict>
 		<key>USB</key>
 		<dict>
-			<key>AddClockID</key>
-			<true/>
 			<key>FixOwnership</key>
 			<true/>
 			<key>Inject</key>
-			<true/>
+			<false/>
 		</dict>
+		<key>UseIntelHDMI</key>
+		<false/>
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
@@ -258,52 +98,17 @@
 	</array>
 	<key>GUI</key>
 	<dict>
-		<key>ConsoleMode</key>
-		<string>Max</string>
-		<key>Custom</key>
-		<dict>
-			<key>Entries</key>
-			<array>
-				<dict>
-					<key>Arguments</key>
-					<string>root=UUID=90ad3a6c-7337-4eaa-84ea-77fdad9866da ro initrd=initrd.img add_efi_memmap verbose nouveau.modeset=0 tpm_tis.interrupts=0 reboot=acpi,efi,kbd acpi_osi= i915.preliminary_hw_support=1 idle=nomwait acpi_backlight=none</string>
-					<key>Disabled</key>
-					<false/>
-					<key>FullTitle</key>
-					<string>Linux Mint</string>
-					<key>Hidden</key>
-					<false/>
-					<key>Ignore</key>
-					<false/>
-					<key>Image</key>
-					<string>ubuntu</string>
-					<key>Path</key>
-					<string>vmlinuz</string>
-					<key>Type</key>
-					<string>All</string>
-					<key>Volume</key>
-					<string>652596BB-5ECC-4A70-A4E7-3B9D3D97699F</string>
-					<key>VolumeType</key>
-					<string>Internal</string>
-				</dict>
-			</array>
-		</dict>
 		<key>Hide</key>
 		<array>
-			<string>BOOTX64.EFI</string>
 			<string>Windows</string>
-			<string>\EFI\ubuntu\grubx64.efi</string>
+			<string>\EFI\BOOT\BOOTX64.EFI</string>
 		</array>
 		<key>Language</key>
 		<string>en:0</string>
 		<key>Mouse</key>
 		<dict>
-			<key>DoubleClick</key>
-			<integer>500</integer>
 			<key>Enabled</key>
-			<false/>
-			<key>Mirror</key>
-			<false/>
+			<true/>
 			<key>Speed</key>
 			<integer>8</integer>
 		</dict>
@@ -311,19 +116,15 @@
 		<dict>
 			<key>Entries</key>
 			<true/>
-			<key>Kernel</key>
-			<string>All</string>
 			<key>Legacy</key>
-			<false/>
-			<key>Linux</key>
-			<false/>
+			<string>First</string>
 			<key>Tool</key>
 			<true/>
 		</dict>
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>softinverted</string>
+		<string>tonymacx86</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -347,43 +148,32 @@
 		<true/>
 		<key>AsusAICPUPM</key>
 		<true/>
-		<key>Debug</key>
-		<false/>
-		<key>DellSMBIOSPatch</key>
-		<false/>
-		<key>ForceKextsToLoad</key>
-		<array>
-			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
-		</array>
 		<key>KernelCpu</key>
 		<false/>
+		<key>#FakeCPUID</key>
+		<string>0x010676</string>
 		<key>KernelHaswellE</key>
 		<false/>
 		<key>KernelLapic</key>
-		<true/>
+		<false/>
 		<key>KernelPm</key>
 		<true/>
-		<key>KernelToPatch</key>
+		<key>KextsToPatch</key>
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>MSR 0xE2 _xcpm_idle instant reboot (c) Pike R. Alpha (Fix kernel panic from SSDT.aml)</string>
-				<key>Disabled</key>
-				<false/>
+				<string>External icons patch</string>
 				<key>Find</key>
 				<data>
-				ILniAAAADzA=
+				RXh0ZXJuYWw=
 				</data>
-				<key>MatchOS</key>
-				<string>10.11.6</string>
+				<key>Name</key>
+				<string>AppleAHCIPort</string>
 				<key>Replace</key>
 				<data>
-				ILniAAAAkJA=
+				SW50ZXJuYWw=
 				</data>
 			</dict>
-		</array>
-		<key>KextsToPatch</key>
-		<array>
 			<dict>
 				<key>Comment</key>
 				<string>Raise 15 port limit to 30 in AppleUSBXHCIPCI</string>
@@ -400,54 +190,6 @@
 				g72M/v//Hw==
 				</data>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQAAdRc=
-				</data>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6xc=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Skylake APIC fix, discovered by Pike R. Alpha</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				wegQD7bw
-				</data>
-				<key>Name</key>
-				<string>AppleAPIC</string>
-				<key>Replace</key>
-				<data>
-				vhcAAACQ
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11-SKL-1912000-4_displays</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQMDAw==
-				</data>
-				<key>Name</key>
-				<string>AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AQMEAw==
-				</data>
-			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -455,7 +197,7 @@
 		<key>BooterConfig</key>
 		<string>0x28</string>
 		<key>CsrActiveConfig</key>
-		<string>0x67</string>
+		<string>0x3</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
@@ -497,9 +239,11 @@
 	<key>SystemParameters</key>
 	<dict>
 		<key>InjectKexts</key>
-		<string>Yes</string>
+		<string>Detect</string>
 		<key>InjectSystemID</key>
 		<true/>
+		<key>NvidiaWeb</key>
+		<false/>
 	</dict>
 </dict>
 </plist>
