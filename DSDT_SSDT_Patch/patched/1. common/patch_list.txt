@@ -1,0 +1,10 @@
+* [bat] ASUS G75VW
+* [sys] Fix _WAK Arg0 v2
+* [sys] HPET Fix
+* [sys] SMBUS Fix
+* [sys] IRQ Fix
+* [sys] RTC Fix
+* [sys] OS Check Fix Windows 8
+* [sys] Fix Mutex with non-zero SyncLevel
+* [usb] 7-series/8-series USB
+* [usb] USB3_PRW 0x6D Skylake (instant wake)

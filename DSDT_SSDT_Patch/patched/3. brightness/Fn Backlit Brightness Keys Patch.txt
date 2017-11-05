@@ -1,0 +1,18 @@
+# Patch by EMlyDinEsH (OSXLatitude)
+# Enables Fn brightness keys to work with my kext AsusNBFnKeys
+
+# Replacing method _Q0E with code for Brightness down key to work
+into Method label _Q0E replace_content begin 
+             If (ATKP)\n
+                {\n
+                   ^^^^ATKD.IANE (0x20)\n
+                }
+end;
+
+# Replacing method _Q0F with code for Brightness up key to work
+into Method label _Q0F replace_content begin 
+             If (ATKP)\n
+                {\n
+                   ^^^^ATKD.IANE (0x10)\n
+                }
+end;
