@@ -1,0 +1,8 @@
+{
+    AFGLowPowerState = <03000000>;
+    Codec = “fidele007 - Conexant CX20752";
+    CodecID = 351359247;
+    ConfigData = <01671c10 01671d10 01671e21 01671f04 01771c20 01771d01 01771e17 01771f90 01871c30 01871d10 01871e81 01871f04 01971c40 01971d01 01971ef0 01971f40 01a71c50 01a71d01 01a71ea0 01a71f90>;
+    FuncGroup = 1;
+    LayoutID = 3;
+}
