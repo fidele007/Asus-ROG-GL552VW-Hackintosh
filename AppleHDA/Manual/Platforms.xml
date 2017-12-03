@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<dict>
+  <!--
+			AUDIO FEATURE LAYOUT SPECIFIC DATA
+	
+			Contains path map descriptions that encapsulate audio
+			features on a per codec basis.  The path map is a collection
+			of features described as paths through the codec and may
+			include some or all of:
+			
+				ADAT Output
+				Aux Input
+				Aux Output
+				Headphone Output
+				Line Input
+				Line Output
+				Internal Microphone
+				External Microphone
+				S/PDIF Input
+				S/PDIF Output
+				Speakers
+			
+			This list is based on HDA features and does not reflect
+			any support or intent of support for the audio features
+			listed here.
+			
+			Data is collected within a Path Map which consists of an
+			array of Path Groups.  Path Groups consist of arrays of
+			paths described by dictionaries containing a widget node 
+			ID and any additional widget specific features such as any
+			binding to published controls.  A path group provides the
+			description of the signal path through the CODEC.
+			
+	-->
+  <key>PathMaps</key>
+  <array>
+    <!--	
+			PathMap is an array where each element describes a unique
+			hardware configuration.  The hardware configuration consists
+			of an array of path groups.  Each path group will instantiate
+			a separate IOAudioEngine.  Each path group consists of an
+			array of widget Node ID values that represent the signal path
+			through the CODEC.  An example path map is shown below to
+			illustrate the format of the path map.  Although signal names
+			(i.e. Microphone, etc.) are depicted, the signal names are
+			not encoded in the data but are determined by the value of
+			the Default Device Type field of the Default Configuration
+			register associated with a pin widget.  The signal names 
+			have only been added to aid in the illustration.
+		-->
+    <dict>
+      <key>PathMapID</key>
+      <integer>20752</integer>
+      <key>PathMap</key>
+			<array>
+				<array>
+					<array>
+						<array> <!-- Input without Audio Mixer (External Mic) !-->
+							<dict>
+								<key>Amp</key>
+								<dict>
+									<key>Channels</key>
+									<array>
+										<dict>
+											<key>Bind</key>
+											<integer>1</integer>
+											<key>Channel</key>
+											<integer>1</integer>
+										</dict>
+										<dict>
+											<key>Bind</key>
+											<integer>2</integer>
+											<key>Channel</key>
+											<integer>2</integer>
+										</dict>
+									</array>
+									<key>MuteInputAmp</key>
+									<true/>
+									<key>PublishMute</key>
+									<true/>
+									<key>PublishVolume</key>
+									<true/>
+									<key>VolumeInputAmp</key>
+									<true/>
+								</dict>
+								<key>NodeID</key>
+								<integer>19</integer>
+							</dict>
+							<dict>
+								<key>Boost</key>
+								<integer>1</integer>
+								<key>NodeID</key>
+								<integer>24</integer>
+							</dict>
+						</array>
+						<array> <!-- Input without Audio Mixer (Internal Mic) !-->
+							<dict>
+								<key>Amp</key>
+								<dict>
+									<key>Channels</key>
+									<array>
+										<dict>
+											<key>Bind</key>
+											<integer>1</integer>
+											<key>Channel</key>
+											<integer>1</integer>
+										</dict>
+										<dict>
+											<key>Bind</key>
+											<integer>2</integer>
+											<key>Channel</key>
+											<integer>2</integer>
+										</dict>
+									</array>
+									<key>MuteInputAmp</key>
+									<true/>
+									<key>PublishMute</key>
+									<true/>
+									<key>PublishVolume</key>
+									<true/>
+									<key>VolumeInputAmp</key>
+									<true/>
+								</dict>
+								<key>NodeID</key>
+								<integer>19</integer>
+							</dict>
+							<dict>
+								<key>Boost</key>
+								<integer>3</integer>
+								<key>NodeID</key>
+								<integer>26</integer>
+							</dict>
+						</array>
+						<array> <!-- Input without Audio Mixer (Unknown) !-->
+							<dict>
+								<key>Amp</key>
+								<dict>
+									<key>Channels</key>
+									<array>
+										<dict>
+											<key>Bind</key>
+											<integer>1</integer>
+											<key>Channel</key>
+											<integer>1</integer>
+										</dict>
+										<dict>
+											<key>Bind</key>
+											<integer>2</integer>
+											<key>Channel</key>
+											<integer>2</integer>
+										</dict>
+									</array>
+									<key>MuteInputAmp</key>
+									<true/>
+									<key>PublishMute</key>
+									<true/>
+									<key>PublishVolume</key>
+									<true/>
+									<key>VolumeInputAmp</key>
+									<true/>
+								</dict>
+								<key>NodeID</key>
+								<integer>20</integer>
+							</dict>
+							<dict>
+								<key>Boost</key>
+								<integer>1</integer>
+								<key>NodeID</key>
+								<integer>25</integer>
+							</dict>
+						</array>
+						<array> <!-- Output without Audio Mixer (Headphone) !-->
+							<dict>
+								<key>Amp</key>
+								<dict>
+									<key>MuteInputAmp</key>
+									<false/>
+									<key>PublishMute</key>
+									<true/>
+									<key>PublishVolume</key>
+									<true/>
+									<key>VolumeInputAmp</key>
+									<false/>
+								</dict>
+								<key>NodeID</key>
+								<integer>22</integer>
+							</dict>
+							<dict>
+								<key>Amp</key>
+								<dict>
+									<key>Channels</key>
+									<array>
+										<dict>
+											<key>Bind</key>
+											<integer>1</integer>
+											<key>Channel</key>
+											<integer>1</integer>
+										</dict>
+										<dict>
+											<key>Bind</key>
+											<integer>2</integer>
+											<key>Channel</key>
+											<integer>2</integer>
+										</dict>
+									</array>
+									<key>MuteInputAmp</key>
+									<true/>
+									<key>PublishMute</key>
+									<true/>
+									<key>PublishVolume</key>
+									<true/>
+									<key>VolumeInputAmp</key>
+									<false/>
+								</dict>
+								<key>NodeID</key>
+								<integer>16</integer>
+							</dict>
+						</array>
+						<array> <!-- Output without Audio Mixer (Speaker) !-->
+							<dict>
+								<key>Amp</key>
+								<dict>
+									<key>MuteInputAmp</key>
+									<false/>
+									<key>PublishMute</key>
+									<true/>
+									<key>PublishVolume</key>
+									<true/>
+									<key>VolumeInputAmp</key>
+									<false/>
+								</dict>
+								<key>NodeID</key>
+								<integer>23</integer>
+							</dict>
+							<dict>
+								<key>Amp</key>
+								<dict>
+									<key>Channels</key>
+									<array>
+										<dict>
+											<key>Bind</key>
+											<integer>1</integer>
+											<key>Channel</key>
+											<integer>1</integer>
+										</dict>
+										<dict>
+											<key>Bind</key>
+											<integer>2</integer>
+											<key>Channel</key>
+											<integer>2</integer>
+										</dict>
+									</array>
+									<key>MuteInputAmp</key>
+									<true/>
+									<key>PublishMute</key>
+									<true/>
+									<key>PublishVolume</key>
+									<true/>
+									<key>VolumeInputAmp</key>
+									<false/>
+								</dict>
+								<key>NodeID</key>
+								<integer>17</integer>
+							</dict>
+						</array>
+					</array>
+				</array>
+			</array>
+    </dict>
+  </array>
+</dict>
