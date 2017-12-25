@@ -15,3 +15,21 @@ Storage |	128 GB SSD (SanDisk SD8SNAT128G1002) + 1 TB 2.5″ HDD (HGST HTS721010
 Connectivity |	Wireless AC Intel 7265 , Gigabit Lan, Bluetooth 4.0
 Ports | 1x USB 2.0,	2x USB 3.0, 1x USB 3.1, HDMI, mic, earphone, SD card reader, LAN
 TouchPad | Elan Touchpad (ELAN1000)
+
+# What works
+* Intel HD 530
+* HDMI
+* Bluetooth
+* All USB ports
+* Keyboard
+* TouchPad with [VoodooI2C](https://www.tonymacx86.com/threads/wip-voodooi2c-i2c-trackpad-limited-support.204227/) (albeit janky)
+* Fn Keys
+* Keyboard Backlighting
+* Ethernet (LAN)
+* Battery Status
+* UVC HD Webcam
+* Speaker + Internal Microphone
+
+# What doesn't work
+* WiFi (needs replacement)
+* NVIDIA Optimus (impossible to get working at the moment)
