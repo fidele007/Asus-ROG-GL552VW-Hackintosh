@@ -28,7 +28,7 @@ TouchPad | Elan Touchpad (ELAN1000)
 * Ethernet (LAN)
 * Battery Status
 * UVC HD Webcam
-* Speaker + Internal Microphone
+* [Speaker + Internal Microphone](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/sierra/AppleHDA) (Using insanelydeepak's patched AppleHDA + CodecCommander)
 
 # What doesn't work
 * WiFi (needs replacement)
