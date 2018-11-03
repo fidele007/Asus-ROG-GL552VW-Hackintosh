@@ -13,8 +13,16 @@
 			<key>Fixes</key>
 			<dict>
 				<key>AddPNLF</key>
+				<false/>
+				<key>FixHPET</key>
+				<true/>
+				<key>FixIPIC</key>
+				<true/>
+				<key>FixRTC</key>
 				<true/>
 				<key>FixShutdown</key>
+				<true/>
+				<key>FixTMR</key>
 				<true/>
 			</dict>
 			<key>Patches</key>
@@ -103,6 +111,20 @@
 					SU1FSQ==
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change GFX0 to IGPU</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					R0ZYMA==
+					</data>
+					<key>Replace</key>
+					<data>
+					SUdQVQ==
+					</data>
+				</dict>
 			</array>
 			<key>ReuseFFFF</key>
 			<false/>
@@ -160,17 +182,19 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 nv_disable=1 -v keepsyms=1 debug=0x100 kext-dev-mode=1 shikigva=40</string>
+		<string>dart=0 -liludbgall -igfxdump -v keepsyms=1 debug=0x100 kext-dev-mode=1 shikigva=40</string>
 		<key>Debug</key>
 		<false/>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
-		<key>NeverHibernate</key>
+		<key>NeverDoRecovery</key>
 		<true/>
+		<key>NeverHibernate</key>
+		<false/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>5</integer>
+		<integer>-1</integer>
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
@@ -181,15 +205,37 @@
 	</dict>
 	<key>Devices</key>
 	<dict>
-		<key>FakeID</key>
+		<key>Audio</key>
 		<dict>
-			<key>IntelGFX</key>
-			<string>0x12345678</string>
+			<key>AFGLowPowerState</key>
+			<false/>
+			<key>Inject</key>
+			<integer>3</integer>
+			<key>ResetHDA</key>
+			<true/>
+		</dict>
+		<key>Properties</key>
+		<dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>AAPL,ig-platform-id</key>
+				<data>
+				AAAbGQ==
+				</data>
+				<key>framebuffer-patch-enable</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-stolenmem</key>
+				<data>
+				AAAwAQ==
+				</data>
+			</dict>
 		</dict>
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
-			<true/>
+			<false/>
 			<key>FixOwnership</key>
 			<true/>
 			<key>Inject</key>
@@ -256,14 +302,12 @@
 			<key>ATI</key>
 			<false/>
 			<key>Intel</key>
-			<true/>
+			<false/>
 			<key>NVidia</key>
 			<false/>
 		</dict>
 		<key>NvidiaSingle</key>
 		<false/>
-		<key>ig-platform-id</key>
-		<string>0x191b0000</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -476,24 +520,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQAAdRc=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6xc=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Enable TRIM for SSD</string>
 				<key>Disabled</key>
 				<true/>
@@ -528,24 +554,6 @@
 				vhcAAACQ
 				</data>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.11.4 ( (based on Austere.J patch)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				QTnEdio=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				QTnE6yo=
-				</data>
-			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -553,22 +561,22 @@
 		<key>BooterConfig</key>
 		<string>0x28</string>
 		<key>CsrActiveConfig</key>
-		<string>0x67</string>
+		<string>0x3e7</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>09/28/2018</string>
+		<string>09/25/2018</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>IM183.88Z.F000.B00.1809280842</string>
+		<string>IM171.88Z.F000.B00.1809251200</string>
 		<key>Board-ID</key>
-		<string>Mac-BE088AF8C5EB4FA2</string>
+		<string>Mac-B809C3757DA9BB8D</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02738501QXJ0PGJA</string>
+		<string>C02526700J9GPF7UE</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -580,9 +588,9 @@
 		<key>ChassisType</key>
 		<string>0x09</string>
 		<key>EfiVersion</key>
-		<string>166.0.0.0.0</string>
+		<string>161.0.0.0.0</string>
 		<key>Family</key>
-		<string>iMac</string>
+		<string>iMac17,1</string>
 		<key>FirmwareFeatures</key>
 		<string>0xFC0FE137</string>
 		<key>FirmwareFeaturesMask</key>
@@ -596,11 +604,11 @@
 		<key>PlatformFeature</key>
 		<string>0x00</string>
 		<key>ProductName</key>
-		<string>iMac18,3</string>
+		<string>iMac17,1</string>
 		<key>SerialNumber</key>
-		<string>C02VF0M8J1GJ</string>
+		<string>C02PX0KAGG7L</string>
 		<key>SmUUID</key>
-		<string>6BDA8C83-6DF2-4391-BAE3-58D07E5CF73A</string>
+		<string>76D11B93-082D-4880-B931-271E1CBC1E33</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
