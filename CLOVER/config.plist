@@ -182,11 +182,11 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 -liludbgall -igfxdump -v keepsyms=1 debug=0x100 kext-dev-mode=1 shikigva=40</string>
-		<key>Debug</key>
-		<false/>
+		<string>keepsyms=1 dart=0 kext-dev-mode=1 debug=0x100 -v shikigva=40</string>
+		<key>DefaultVolume</key>
+		<string>LastBootedVolume</string>
 		<key>Legacy</key>
-		<string>LegacyBiosDefault</string>
+		<string>PBR</string>
 		<key>NeverDoRecovery</key>
 		<true/>
 		<key>NeverHibernate</key>
@@ -210,7 +210,7 @@
 			<key>AFGLowPowerState</key>
 			<false/>
 			<key>Inject</key>
-			<integer>3</integer>
+			<integer>28</integer>
 			<key>ResetHDA</key>
 			<true/>
 		</dict>
@@ -248,34 +248,15 @@
 	</array>
 	<key>GUI</key>
 	<dict>
-		<key>Custom</key>
-		<dict>
-			<key>Entries</key>
-			<array>
-				<dict>
-					<key>Disabled</key>
-					<false/>
-					<key>FullTitle</key>
-					<string>UEFI internal</string>
-					<key>Hidden</key>
-					<string>Always</string>
-					<key>Ignore</key>
-					<false/>
-					<key>NoCaches</key>
-					<false/>
-					<key>Type</key>
-					<string>Other</string>
-				</dict>
-			</array>
-		</dict>
+		<key>Hide</key>
+		<array>
+			<string>Windows</string>
+			<string>\EFI\BOOT\BOOTX64.EFI</string>
+		</array>
 		<key>Mouse</key>
 		<dict>
-			<key>DoubleClick</key>
-			<integer>500</integer>
 			<key>Enabled</key>
-			<false/>
-			<key>Mirror</key>
-			<false/>
+			<true/>
 			<key>Speed</key>
 			<integer>8</integer>
 		</dict>
@@ -284,14 +265,14 @@
 			<key>Entries</key>
 			<true/>
 			<key>Legacy</key>
-			<true/>
-			<key>Linux</key>
 			<false/>
+			<key>Linux</key>
+			<true/>
 			<key>Tool</key>
 			<true/>
 		</dict>
 		<key>Theme</key>
-		<string>Bluemac</string>
+		<string>clover-next-black</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
