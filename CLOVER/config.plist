@@ -363,6 +363,86 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>Brumbaer's GDP Patch 1</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				RURJRAA=
+				</data>
+				<key>Name</key>
+				<string>AppleGraphicsDevicePolicy</string>
+				<key>Replace</key>
+				<data>
+				RURJSQA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Brumbaer's GDP Patch 2</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				dW5sb2FkAA==
+				</data>
+				<key>Name</key>
+				<string>AppleGraphicsDevicePolicy</string>
+				<key>Replace</key>
+				<data>
+				dW5sb2FlAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Brumbaer's GDP Patch 3</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				RGVmYXVsdAA=
+				</data>
+				<key>Name</key>
+				<string>AppleGraphicsDevicePolicy</string>
+				<key>Replace</key>
+				<data>
+				bm9uZQAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Brumbaer's GDP Patch 4</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				Q29uZmlnTWFwAA==
+				</data>
+				<key>Name</key>
+				<string>AppleGraphicsDevicePolicy</string>
+				<key>Replace</key>
+				<data>
+				Q29uZmlnTWFxAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Brumbaer's GDP Patch 5</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				RmVhdHVyZUNvbnRyb2wA
+				</data>
+				<key>Name</key>
+				<string>AppleGraphicsDevicePolicy</string>
+				<key>Replace</key>
+				<data>
+				RmVhdHVyZUNvbnRyb20A
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>change 15 port limit to 30</string>
 				<key>Disabled</key>
 				<false/>
