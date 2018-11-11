@@ -252,6 +252,8 @@
 		<array>
 			<string>Windows</string>
 			<string>\EFI\BOOT\BOOTX64.EFI</string>
+			<string>Preboot</string>
+			<string>Recovery</string>
 		</array>
 		<key>Mouse</key>
 		<dict>
