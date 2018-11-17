@@ -113,9 +113,9 @@
 				<key>F4KeyFunction</key>
 				<integer>0</integer>
 				<key>FinerBrightnessControl</key>
-				<false/>
+				<true/>
 				<key>FinerVolumeControl</key>
-				<false/>
+				<true/>
 				<key>HasMediaFnKeys</key>
 				<true/>
 				<key>IdleKBacklightAutoOff</key>
