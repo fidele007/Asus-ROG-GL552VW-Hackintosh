@@ -4,6 +4,18 @@
 <dict>
 	<key>ACPI</key>
 	<dict>
+		<key>AutoMerge</key>
+		<true/>
+		<key>FixHeaders</key>
+		<true/>
+		<key>Comment-DisabledAML</key>
+		<string>Disable other forms of CPU PM due to SSDT/Generate/PluginType=true</string>
+		<key>DisabledAML</key>
+		<array>
+			<string>SSDT.aml</string>
+			<string>SSDT-XCPM.aml</string>
+			<string>SSDT-PluginType1.aml</string>
+		</array>
 		<key>DSDT</key>
 		<dict>
 			<key>Debug</key>
@@ -358,6 +370,8 @@
 				<data>
 				RURJRAA=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AppleGraphicsDevicePolicy</string>
 				<key>Replace</key>
@@ -374,6 +388,8 @@
 				<data>
 				dW5sb2FkAA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AppleGraphicsDevicePolicy</string>
 				<key>Replace</key>
@@ -390,6 +406,8 @@
 				<data>
 				RGVmYXVsdAA=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AppleGraphicsDevicePolicy</string>
 				<key>Replace</key>
@@ -406,6 +424,8 @@
 				<data>
 				Q29uZmlnTWFwAA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AppleGraphicsDevicePolicy</string>
 				<key>Replace</key>
@@ -422,6 +442,8 @@
 				<data>
 				RmVhdHVyZUNvbnRyb2wA
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AppleGraphicsDevicePolicy</string>
 				<key>Replace</key>
