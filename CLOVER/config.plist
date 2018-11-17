@@ -210,7 +210,7 @@
 			<key>AFGLowPowerState</key>
 			<false/>
 			<key>Inject</key>
-			<integer>28</integer>
+			<integer>3</integer>
 			<key>ResetHDA</key>
 			<true/>
 		</dict>
@@ -221,6 +221,10 @@
 				<key>AAPL,ig-platform-id</key>
 				<data>
 				AAAbGQ==
+				</data>
+				<key>framebuffer-fbmem</key>
+				<data>
+				AACQAA==
 				</data>
 				<key>framebuffer-patch-enable</key>
 				<data>
@@ -585,7 +589,7 @@
 				<key>Comment</key>
 				<string>Enable TRIM for SSD</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AEFQUExFIFNTRAA=
