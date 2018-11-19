@@ -182,15 +182,15 @@
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>NeverDoRecovery</key>
-		<true/>
+		<false/>
 		<key>NeverHibernate</key>
 		<false/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>-1</integer>
+		<integer>15</integer>
 		<key>XMPDetection</key>
-		<string>Yes</string>
+		<false/>
 	</dict>
 	<key>CPU</key>
 	<dict>
