@@ -6,16 +6,8 @@
 	<dict>
 		<key>AutoMerge</key>
 		<true/>
-		<key>FixHeaders</key>
-		<true/>
 		<key>Comment-DisabledAML</key>
 		<string>Disable other forms of CPU PM due to SSDT/Generate/PluginType=true</string>
-		<key>DisabledAML</key>
-		<array>
-			<string>SSDT.aml</string>
-			<string>SSDT-XCPM.aml</string>
-			<string>SSDT-PluginType1.aml</string>
-		</array>
 		<key>DSDT</key>
 		<dict>
 			<key>Debug</key>
@@ -141,6 +133,12 @@
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
+		<key>DisabledAML</key>
+		<array>
+			<string>SSDT.aml</string>
+			<string>SSDT-XCPM.aml</string>
+			<string>SSDT-PluginType1.aml</string>
+		</array>
 		<key>DropTables</key>
 		<array>
 			<dict>
@@ -152,6 +150,8 @@
 				<string>DMAR</string>
 			</dict>
 		</array>
+		<key>FixHeaders</key>
+		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -455,7 +455,7 @@
 				<key>Comment</key>
 				<string>change 15 port limit to 30</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g72M/v//EA==
@@ -473,7 +473,7 @@
 				<key>Comment</key>
 				<string>change 15 port limit to 26 in XHCI kext</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g710////EA==
@@ -493,7 +493,7 @@
 				<key>Comment</key>
 				<string>change 15 port limit to 26 in XHCI kext</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g32MEA==
@@ -513,7 +513,7 @@
 				<key>Comment</key>
 				<string>disable port limit in XHCI kext (credit PMHeart)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g32UDw+DlwQAAA==
@@ -533,7 +533,7 @@
 				<key>Comment</key>
 				<string>change 15 port limit to 26 in XHCI kext (credit FredWst)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g32UDw+DlwQ=
@@ -553,7 +553,7 @@
 				<key>Comment</key>
 				<string>disable port limit in XHCI kext (credit RehabMan, based prior PMHeart patch)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g32IDw+DpwQAAA==
@@ -573,7 +573,7 @@
 				<key>Comment</key>
 				<string>disable port limit in XHCI kext (credit PMHeart)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g/sPD4MDBQAA
