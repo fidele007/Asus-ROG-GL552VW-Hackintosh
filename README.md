@@ -96,7 +96,7 @@ All the kernel and kext patches come with explanatory comments.
 
 Choose a Mac model that's most compatible with your version of macOS. I use `iMac17,1`. Use [Clover Configuration](https://mackie100projects.altervista.org/download-clover-configurator/) for easy configuration of your SMBIOS.
 
-### BIOS Settings
+## BIOS Settings
 
 * Disable Fastboot
 * Disable Secure Boot
