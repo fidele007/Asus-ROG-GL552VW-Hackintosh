@@ -1,6 +1,9 @@
 # Asus ROG GL552VW Hackintosh macOS El Capitan
+
 * Guide to hackintoshing the ASUS ROG GL552VW on macOS El Capitan
 * Guide for [macOS Sierra](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/sierra)
+* Guide for [macOS Mojave](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/mojave)
+
 ## Specs
 
 //\\\ | Asus ROG GL552VW
@@ -17,6 +20,7 @@ Ports | 1x USB 2.0,	2x USB 3.0, 1x USB 3.1, HDMI, mic, earphone, SD card reader,
 TouchPad | Elan Touchpad (ELAN1000)
 
 # What works
+
 * Intel HD 530
 * HDMI
 * Bluetooth
@@ -31,5 +35,6 @@ TouchPad | Elan Touchpad (ELAN1000)
 * Speaker + Internal Microphone
 
 # What doesn't work
+
 * WiFi (needs replacement)
 * NVIDIA Optimus (impossible to get working at the moment)
