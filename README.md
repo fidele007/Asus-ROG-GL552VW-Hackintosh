@@ -26,7 +26,7 @@ See [detailed guide](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/wi
 
 ---
 
-Thanks:
+### Thanks
 
 * [RehabMan](https://www.tonymacx86.com/members/rehabman.429483/) for all the amazing guides and kexts
 * [toleda](https://www.tonymacx86.com/members/toleda.2393/) for his [Broadcom WiFi/Bluetooth [Guide]](https://www.tonymacx86.com/threads/broadcom-wifi-bluetooth-guide.242423/)
