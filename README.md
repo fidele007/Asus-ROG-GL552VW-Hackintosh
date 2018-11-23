@@ -240,7 +240,7 @@ The included patches are in `CLOVER/ACPI/patched`:
   end;
   ```
 
-  * \[Windows\] Windows 10 Patch (required for VooodooI2C):
+  * \[Windows\] Windows 10 Patch (required for VoodooI2C):
 
   ```txt
   # Windows 10 DSDT Patch for VoodooI2C
@@ -310,6 +310,95 @@ The included patches are in `CLOVER/ACPI/patched`:
 * `SSDT-USB.aml` for USB port patch thanks to [Rehabman's guide](https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311/)
 * ~~`SSDT-CX20752.aml`~~ has been removed since I could not get the internal microphone to work with this patch. Instead, I got it working by manually modifying the `Info.plist` file in `CodecCommander.kext` to include the custom commands (see below).
 
+### TouchPad with VoodooI2C
+
+Since the ASUS ROG GL552VW's touchpad is an I2C device, RehabMan's VoodooPS2Controller won't work. You're going to need VoodooI2C, and this section will cover [the guide](https://voodooi2c.github.io/#Installation/Installation) and how I got it to work for this machine.
+
+According to the guide, you need to apply three pre-made patches under *_VoodooI2C-Patches* to your DSDT using [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads/):
+
+* \[Windows\] Windows 10 Patch
+* \[Controllers\] I2C Controllers \[SKL\]
+* \[GPIO\] GPIO Controller Enable \[SKL+\]
+
+Unfortunately, that is not enough because you also need to manually do [GPIO pinning](https://voodooi2c.github.io/#GPIO%20Pinning/GPIO%20Pinning).
+
+First, I looked for the BIOS name of the touchpad in Windows Device Manager where my touchpad is working correctly, and it is `\_SB.PCI0.I2C1.ETPD`.
+
+Next, I need to get the **hexadcimal APIC pin number** of the touchpad. To to that, I use IORegistryExplorer, search for `I2C1` (from the BIOS name) and check the `IOInterruptSpecifiers` of the child item of the `I2C1` node. The display value is <5f ...>. I only need the first two digits to make up the hexadcimal APIC pin number: `0x5f`. According to the guide, if the pin number is less than or equal to `0x2F`, then I can just go ahead and install the kexts, but as you can see, this is not the case.
+
+I also need to make sure that my I2C Serial Bus `Name` is correctly labelled, so I go to the scope `_SB.PCI0.I2C1` in my DSDT to check and see this:
+
+```txt
+Scope (_SB.PCI0.I2C1)
+{
+    Device (ETPD)
+    {
+        Name (SBFB, ResourceTemplate ()
+        {
+            I2cSerialBusV2 (0x004C, ControllerInitiated, 0x00061A80,
+                AddressingMode7Bit, "\\_SB.PCI0.I2C1",
+                0x00, ResourceConsumer, _Y34, Exclusive,
+                )
+        })
+        Name (SBFI, ResourceTemplate ()
+        {
+            Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+            {
+                0x0000005F,
+            }
+        })
+...
+```
+
+I have both `SBFB` and `SBFI`, but I only need `SBFB`, so I remove the `SBFI` Name.
+
+I'm also missing the `SBFG` resource template which is needed for GPIO pinning, so I add it at the beginning of the touchpad's entry:
+
+```txt
+Scope (_SB.PCI0.I2C1)
+    {
+        Device (ETPD)
+        {
+            Name (SBFG, ResourceTemplate ()
+            {
+                GpioInt (Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
+                    "\\_SB.PCI0.GPI0", 0x00, ResourceConsumer, ,
+                    )
+                    {   // Pin list
+                        0x0000
+                    }
+            })
+...
+```
+
+Now I can add the GPIO pin. I take a look at [this list](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/skylake/include/soc/gpio_defs.h#L43) and search for my hexadcimal APIC pin number (`0x5f`) in the right column. I see that it is defined with `GPP_C23_IRQ`. I then look at [this list](https://github.com/coreboot/coreboot/blob/master/src/soc/intel/skylake/include/soc/gpio_soc_defs.h#L37) to find the corresponding GPIO pin to `GPP_C23`: `71`, which is `0x47` in hexadcimal, and this is the GPIO pin to put into `ResourceTemplate` of `SBFG`:
+
+```txt
+Scope (_SB.PCI0.I2C1)
+    {
+        Device (ETPD)
+        {
+            Name (SBFG, ResourceTemplate ()
+            {
+                GpioInt (Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
+                    "\\_SB.PCI0.GPI0", 0x00, ResourceConsumer, ,
+                    )
+                    {   // Pin list
+                        0x47
+                    }
+            })
+...
+```
+
+Finally, I check the `_CRS` method and change the return value from `Return (ConcatenateResTemplate (SBFB, SBFI))` to `Return (ConcatenateResTemplate (SBFB, SBFG))` since I've already deleted the `SBFI` name and replace it with `SBFG`.
+
+I save my patched DSDT to `/CLOVER/ACPI/patched` and install the [VoodooI2C kexts](https://github.com/alexandred/VoodooI2C/releases) for my ELAN touchpad:
+
+* VoodooI2C.kext
+* VoodooI2CELAN.kext
+
+I restart my machine to confirm that the touchpad is working correctly. I can even turn it off when an external mouse is connected. Cool!
+
 ### Additional kexts
 
 * **Audio:** since Mojave has removed a lot of layout IDs from its `AppleHDA.kext`, the currently most recommended way of patching `AppleHDA.kext` is `AppleALC.kext`. Get the latest version from [here](https://github.com/acidanthera/AppleALC/releases). Unfortunately, the internal microphone does not work out of the box even with this kext. You need a patch to get it working. I use `CodecCommander.kext` and add a profile for `CX20752` in `CodecCommander.kext/Contents/Info.plist` ([General guide](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/src/a1219d7dafeadfb9e9d881d47ac9a677168b3fa6/README.md)):
@@ -352,6 +441,8 @@ The included patches are in `CLOVER/ACPI/patched`:
   <false/>
 </dict>
 ```
+
+Alternatively, you can use [the script](https://github.com/fidele007/CX20752) I created to apply this patch automatically.
 
 * **Brightness:** `AppleBacklightFixup.kext` is required in combination with the `SSDT-PNLF.aml` above to get the brightness control working. Get it from [here](https://bitbucket.org/RehabMan/applebacklightfixup/downloads/).
 * **AsusNBFnKeys.kext:** Enable FN key functions. Get it from [here](https://osxlatitude.com/forums/topic/1968-fn-hotkey-and-als-sensor-driver-for-asus-notebooks/).
@@ -537,6 +628,7 @@ TRIM does not work well with APFS; there has been reports that it will make your
 * Battery status
 * UVC HD Webcam
 * Speaker and Internal microphone
+* TouchPad with [VoodooI2C](https://www.tonymacx86.com/threads/voodooi2c-help-and-support.243378/)
 
 ### What doesn't work
 
@@ -544,7 +636,6 @@ TRIM does not work well with APFS; there has been reports that it will make your
 
 ### Untested
 
-* TouchPad with [VoodooI2C](https://www.tonymacx86.com/threads/voodooi2c-help-and-support.243378/)
 * SD card reader
 
 ---
