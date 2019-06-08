@@ -228,6 +228,10 @@
 				<data>
 				AAAwAQ==
 				</data>
+				<key>framebuffer-con2-enable</key>
+				<integer>1</integer>
+				<key>framebuffer-con2-type</key>
+				<data>AAgAAA==</data>
 			</dict>
 		</dict>
 		<key>USB</key>
