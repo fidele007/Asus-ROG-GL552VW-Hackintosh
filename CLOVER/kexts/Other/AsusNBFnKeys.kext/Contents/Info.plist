@@ -113,7 +113,7 @@
 				<key>F4KeyFunction</key>
 				<integer>0</integer>
 				<key>FinerBrightnessControl</key>
-				<true/>
+				<false/>
 				<key>FinerVolumeControl</key>
 				<true/>
 				<key>HasMediaFnKeys</key>
