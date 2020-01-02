@@ -115,7 +115,7 @@
 					<key>Comment</key>
 					<string>HDAS to HDEF</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>SERBUw==</data>
 					<key>Replace</key>
