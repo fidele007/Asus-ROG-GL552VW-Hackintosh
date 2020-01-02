@@ -12,13 +12,12 @@ See [detailed guide](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/wi
 * Wi-Fi by replacing the original with `BCM94352Z`
 * Battery status
 * UVC HD Webcam
-* Speaker
+* Speaker and Internal microphone
 * TouchPad with [VoodooI2C](https://www.tonymacx86.com/threads/voodooi2c-help-and-support.243378/)
 
 ### Temporarily not working
 
 * FN keys (Adjust keyboard backlight and brightness)
-* Internal microphone
 
 Note: if anyone can fix this, please create a pull request. Best regards.
 
@@ -45,6 +44,12 @@ Make sure your EFI partition size is greater or equal 200MB, else you can extend
 5. Open terminal and type 'sudo trimforce disable' (this will make boot time much faster)
 6. Done!
 
+---
+
+### Makes the Internal speaker working
+1. Using `KextBeast` to install the `CodecCommand.kext` into `/Library/Extensions`
+2. Using `Kext Utility` to rebuild `kextcache`
+3. Reboot
 
 ---
 
