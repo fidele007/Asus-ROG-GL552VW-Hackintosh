@@ -53,6 +53,14 @@ Make sure your EFI partition size is greater or equal 200MB, else you can extend
 
 ---
 
+### Alternative makes funtion keys working
+1. Download the software [Karabiner-Elements](https://pqrs.org/osx/karabiner/)
+2. Open and install the package
+3. Grants the access permission in the Settings app
+4. Open the `Karabiner-Elements` app (with the KEY icon)
+
+---
+
 ### Thanks
 
 * [RehabMan](https://www.tonymacx86.com/members/rehabman.429483/) for all the amazing guides and kexts
