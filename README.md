@@ -1,11 +1,15 @@
 # Asus ROG GL552VW Hackintosh macOS Monterey
 This is a guide to hackintoshing the ASUS ROG GL552VW on macOS Monterey. For other versions of macOS:
 
-* Guide for [macOS Sierra](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/sierra)
+* Guide for [macOS Catalina](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/catalina)
 * Guide for [macOS Mojave](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/mojave)
+* Guide for [macOS Sierra](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/sierra)
 
 
 > This version was made using OpenCore new hackintoshing, and isn't to reliable so if sudently your computer crashes don't blame on me.
+
+**Note:** Make sure to generate a unique SMBIOS for your machine. For more information, please refer to https://dortania.github.io/OpenCore-Install-Guide/config.plist/skylake.html#platforminfo. The detailed guide is also available on the site: https://dortania.github.io/OpenCore-Install-Guide.
+
 ## Specs
 
 //\\\ | Asus ROG GL552VW
