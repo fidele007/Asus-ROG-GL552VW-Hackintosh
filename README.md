@@ -1,7 +1,7 @@
 # Asus ROG GL552VW Hackintosh macOS Monterey
 This is a guide to hackintoshing the ASUS ROG GL552VW on macOS Ventura. For other versions of macOS:
 
-* Guide for [macOS Catalina](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/ventura)
+* Guide for [macOS Ventura](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/ventura)
 * Guide for [macOS Catalina](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/catalina)
 * Guide for [macOS Mojave](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/mojave)
 * Guide for [macOS Sierra](https://github.com/fidele007/Asus-ROG-GL552VW-Hackintosh/tree/sierra)
